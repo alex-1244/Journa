@@ -7,14 +7,14 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-        <BrowserRouter>
+    <BrowserRouter>
       <Route path="/Privacy">
         <App name="Privacy" />
       </Route>
       <Route path="/Index">
         <App name="Index" />
       </Route>
-    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
