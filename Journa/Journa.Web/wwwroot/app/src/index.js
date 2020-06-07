@@ -1,21 +1,25 @@
-import { React, lazy } from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 //import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-const App = lazy(() => import("./App"));
+const App = React.lazy(() => import("./App"));
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Route path="/Privacy">
-        <App name="Privacy" />
-      </Route>
-      <Route path="/Index">
-        <App name="Index" />
-      </Route>
+      <Suspense fallback="lll">
+        <Switch>
+          <Route path="/Privacy">
+            <App name="Privacy" />
+          </Route>
+          <Route path="/Index">
+            <App name="Index" />
+          </Route>
+        </Switch>
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
